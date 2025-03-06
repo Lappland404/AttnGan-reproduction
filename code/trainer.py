@@ -81,7 +81,7 @@ class condGANTrainer(object):
                 from model import D_NET128 as D_NET
             else:  # cfg.TREE.BRANCH_NUM == 3:
                 from model import D_NET256 as D_NET
-            # TODO: elif cfg.TREE.BRANCH_NUM > 3:
+            # TDO: elif cfg.TREE.BRANCH_NUM > 3:
             netG = G_DCGAN()
             netsD = [D_NET(b_jcu=False)]
         else:
@@ -93,7 +93,7 @@ class condGANTrainer(object):
                 netsD.append(D_NET128())
             if cfg.TREE.BRANCH_NUM > 2:
                 netsD.append(D_NET256())
-            # TODO: if cfg.TREE.BRANCH_NUM > 3:
+            # TDO: if cfg.TREE.BRANCH_NUM > 3:
         netG.apply(weights_init)
         # print(netG)
         for i in range(len(netsD)):
